@@ -4,9 +4,9 @@ const Footer = () => {
 
   return (
     <footer>
-        <h4>Hosted by: Name ~ NetId </h4>
+        <h4>Hosted by: Brady Ash ~ j11q863 </h4>
         <p> <b>Port:</b> 30/50xx </p>
-        <p> Describe your contributions to the project </p>
+        <p> Backend linking to a database </p>
     </footer>
   )
 }
