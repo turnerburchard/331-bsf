@@ -3,11 +3,13 @@ import './App.css';
 import AddEntry from '../AddEntry.jsx';
 import CurrentEntries from '../CurrentEntries.jsx';
 import Footer from '../Footer.jsx'
+import Header from "../Header";
 
 function App() {
 
   return (
     <div className="App">
+        <Header />
       <h1>Entries</h1>
 
       <AddEntry />
