@@ -2,7 +2,7 @@ body {
   margin:0 10px;
 }
 .App {
-  font-family: Arial, Helvetica, sans-serif;
+  font-family: Roboto, Helvetica, sans-serif;
   max-width:600px;
   margin: auto;
 }
@@ -21,7 +21,8 @@ body {
   font-size: 2rem;
   border-radius: 5px;
   color: #333;
-  background-color:rgba(135, 206, 235, 0.3);
+  background-color: white;
+  border-color: blue;
 }
 #firstLastName {
   display: grid;
@@ -37,10 +38,30 @@ body {
   justify-content: center;
 }
 .submitBtn {
-  margin: 20px;
-  padding: 10px;
+  align-items: center;
+  background-image: linear-gradient(144deg,#AF40FF, #5B42F3 50%,#00DDEB);
+  border: 0;
+  border-radius: 8px;
+  box-shadow: rgba(151, 65, 252, 0.2) 0 15px 30px -5px;
+  box-sizing: border-box;
+  color: #FFFFFF;
+  display: flex;
+  font-family: Phantomsans, sans-serif;
+  font-size: 20px;
+  justify-content: center;
+  line-height: 1em;
+  max-width: 100%;
+  min-width: 140px;
+  padding: 19px 24px;
+  text-decoration: none;
+  user-select: none;
+  -webkit-user-select: none;
+  touch-action: manipulation;
+  white-space: nowrap;
+  cursor: pointer;
+  margin: 1em;
   width: 50%;
-  margin: 10px auto;
+  align-self: center;
 }
 .editField{
   margin: 20px 0;
@@ -66,7 +87,27 @@ body {
 }
 .editGui button {
   width: 20%;
-  margin-right: 1em;
+  align-items: center;
+  background-image: linear-gradient(144deg,#AF40FF, #5B42F3 50%,#00DDEB);
+  border: 0;
+  border-radius: 8px;
+  box-shadow: rgba(151, 65, 252, 0.2) 0 15px 30px -5px;
+  box-sizing: border-box;
+  color: #FFFFFF;
+  font-family: Phantomsans, sans-serif;
+  font-size: 14px;
+  justify-content: center;
+  line-height: 1em;
+  max-width: 100%;
+  min-width: 140px;
+  padding: 10px 20px;
+  text-decoration: none;
+  user-select: none;
+  -webkit-user-select: none;
+  touch-action: manipulation;
+  white-space: nowrap;
+  cursor: pointer;
+  margin: 1em;
 }
 .editGui input {
   width: 50%;
@@ -80,4 +121,23 @@ body {
 }
 #submitEmailsButton{
   display: none;
+}
+
+.rainbow {
+  margin-top: 0px;
+  margin-bottom: 50px;
+  text-align: center;
+  font-family: sans-serif;
+  letter-spacing: 0.15rem;
+  text-transform: uppercase;
+  color: #fff;
+  text-shadow: -4px 4px #ef3550,
+  -8px 8px #f48fb1,
+  -12px 12px #7e57c2,
+  -16px 16px #2196f3,
+  -20px 20px #26c6da,
+  -24px 24px #43a047,
+  -28px 28px #eeff41,
+  -32px 32px #f9a825,
+  -36px 36px #ff5722;
 }

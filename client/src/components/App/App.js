@@ -1,22 +1,30 @@
 import React from 'react';
 import './App.css';
-import AddEntry from '../AddEntry.jsx';
-import CurrentEntries from '../CurrentEntries.jsx';
-import Footer from '../Footer.jsx'
-import Header from "../Header";
+import {
+    Router,
+    Route,
+    Link, Routes, BrowserRouter
+} from "react-router-dom";
+import Home from "../home";
+import Contact from "../Contact";
+import Header from "../header/Header";
+import Footer from "../footer/Footer";
+import roboto from '@fontsource/roboto'
 
 function App() {
 
   return (
-    <div className="App">
-        <Header />
-      <h1>Entries</h1>
+    <div>
+        <BrowserRouter>
+            <Header />
 
-      <AddEntry />
-      <hr />
-      <CurrentEntries />
-      <hr />
-      <Footer />
+            <Routes>
+                <Route path="/" element={<Home />} />
+                <Route path="/contact" element={<Contact />} />
+            </Routes>
+            <Footer />
+
+        </BrowserRouter>
     </div>
   )
 }

@@ -1,19 +1,21 @@
-// Copy this file to Footer.jsx and replace it with your information. It will
-// not be commited to GitHub.
+import "./footer.css"
 const Footer = () => {
 
   return (
     <footer>
         <h4>Hosted by: Turner Burchard r62d733 </h4>
         <p> <b>Port:</b> 30/5058 </p>
-        <p> Contributions: </p>
+        <p> <strong>Contributions: </strong></p>
         <ul>
             <li>Style Main Page</li>
             <li>Header</li>
             <li>Contact Page</li>
+            <li>App routing</li>
+            <li>More TBD</li>
         </ul>
+        <p><a href={"https://github.com/turnerburchard"}>Github </a></p>
+        <p><a href={"https://github.com/turnerburchard/331-bsf"}>Repo</a> (Branch: turner)</p>
     </footer>
   )
 }
-
 export default Footer;
