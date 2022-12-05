@@ -1,59 +1,56 @@
-import { useState, useRef, useEffect } from 'react';
-import React, { Component } from 'react';
-import axios from 'axios'
+import React, {Component, useEffect, useState} from 'react';
 import { CSVLink } from "react-csv";
-import csvDownload from "./CsvDownload";
+import axios from 'axios'
 
-const CsvDownload = () => {
+const headers = [
+    { label: "First Name", key: "firstName" },
+    { label: "Last Name", key: "lastName" },
+    { label: "Email", key: "email" },
+];
 
-    const SECRET = process.env.REACT_APP_PASSCODE
-
-    const [entryList, setEntryList] = useState([])
-
-
-    // READ (GET)
-    useEffect(() => {
-        axios.get(`${process.env.REACT_APP_HOST}/api/read`).then((response) => {
-            setEntryList(response.data)
-        })
-    }, [entryList])
-
-    const headers = [
-        { label: "First Name", key: "firstName" },
-        { label: "Last Name", key: "lastName" },
-        { label: "Email", key: "email" }
-    ];
-
-    class CsvDownload extends Component {
-        constructor(props) {
-            super(props);
-            this.state = {
-                data: []
-            }
-            this.csvLinkEl = React.createRef();
+class CsvDownload extends Component {
+    constructor(props) {
+        super(props);
+        this.state = {
+            data: []
         }
-        downloadReport = async () => {
-            const data = entryList;
-            this.setState({data: data}, () => {
-                setTimeout(() => {
-                    this.csvLinkEl.current.link.click();
-                });
-            });
-        }
+        this.csvLinkEl = React.createRef();
     }
 
-        return(
 
-    <div id= 'async'>
-    <input type="button" value="Export to CSV (Async)" onClick={this.downloadReport}/>
-    <CSVLink
-        headers={headers}
-        filename="bsf_volunteers.csv"
-        //data={csvDownload.data}
-        ref={this.csvLinkEl}
-    />
-</div>
-)
+    getUserList = () => {
+        const [entryList, setEntryList] = useState([])
+        return useEffect(() => {
+            axios.get(`${process.env.REACT_APP_HOST}/api/read`).then((response) => {
+                setEntryList(response.data)
+            })
+        }, [entryList])
+    }
+
+    downloadReport = async () => {
+        const data = await this.getUserList();
+        this.setState({ data: data }, () => {
+            setTimeout(() => {
+                this.csvLinkEl.current.link.click();
+            });
+        });
+    }
+
+    render() {
+        const { data } = this.state;
+
+        return (
+            <div>
+                <input type="button" value="Export to CSV (Async)" onClick={this.downloadReport} />
+                <CSVLink
+                    headers={headers}
+                    filename="Clue_Mediator_Report_Async.csv"
+                    data={data}
+                    ref={this.csvLinkEl}
+                />
+            </div>
+        );
+    }
 }
 
 export default CsvDownload;
