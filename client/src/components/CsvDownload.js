@@ -49,7 +49,7 @@ const CsvDownload = () => {
     <CSVLink
         headers={headers}
         filename="bsf_volunteers.csv"
-        data={csvDownload.data}
+        //data={csvDownload.data}
         ref={this.csvLinkEl}
     />
 </div>
