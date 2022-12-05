@@ -3,6 +3,7 @@ import AddEntry from './AddEntry.jsx';
 import CurrentEntries from './CurrentEntries.jsx';
 import Footer from './footer/Footer.jsx'
 import Header from "./header/Header";
+import Csvbutton from "./csvbutton";
 
 function Home() {
 
@@ -13,6 +14,7 @@ function Home() {
             <AddEntry />
             <hr />
             <CurrentEntries />
+            <Csvbutton />
             <hr />
         </div>
     )
