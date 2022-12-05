@@ -10,8 +10,6 @@ const headers = [
 ];
     const [entryList, setEntryList] = useState([])
 
-
-    // READ (GET)
     useEffect(() => {
         axios.get(`${process.env.REACT_APP_HOST}/api/read`).then((response) => {
             setEntryList(response.data)

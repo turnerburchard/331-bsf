@@ -128,6 +128,10 @@ const CurrentEntries = () => {
     }
   }
 
+  const strAscending = [...entryList].sort((a, b) =>
+      a.name > b.name ? 1 : -1,
+  );
+
   return (
 
     <div className="currentEntries posRel">
@@ -162,7 +166,7 @@ const CurrentEntries = () => {
             onBlur={(e) => abortPasscodeAttempt(e.target.value)} />
         </div>
         <button id="submitEmailsButton" className='submitBtn' onClick={() => alert('TODO: Send It!')}>Email Vouchers</button>
-
+        <button id="sortAscendingName" onClick={setEntryList(strAscending)}>Sort Name</button>
       </div>
     </div>
   )
