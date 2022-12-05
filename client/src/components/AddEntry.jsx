@@ -6,7 +6,7 @@ const AddEntry = () => {
   const [firstName, setFirstName] = useState('');
   const [lastName, setLastName] = useState('');
   const [emailAddress, setEmailAddress] = useState('');
-  const [entryList, setEntryList] = useState([])
+  const [entryList, setEntryList] = useState([]);
 
   const ref1 = useRef(null);
   const ref2 = useRef(null);

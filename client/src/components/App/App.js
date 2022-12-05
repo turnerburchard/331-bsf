@@ -3,6 +3,7 @@ import './App.css';
 import AddEntry from '../AddEntry.jsx';
 import CurrentEntries from '../CurrentEntries.jsx';
 import Footer from '../Footer.jsx'
+import CsvDownload from "../CsvDownload";
 
 function App() {
 
@@ -14,6 +15,8 @@ function App() {
       <hr />
       <CurrentEntries />
       <hr />
+        <CsvDownload />
+        <hr />
       <Footer />
     </div>
   )
