@@ -15,8 +15,8 @@ function App() {
       <hr />
       <CurrentEntries />
       <hr />
-        <CsvDownload />
-        <hr />
+      <CsvDownload />
+      <hr />
       <Footer />
     </div>
   )
