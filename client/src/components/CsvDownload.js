@@ -2,6 +2,7 @@ import { useState, useRef, useEffect } from 'react';
 import React, { Component } from 'react';
 import axios from 'axios'
 import { CSVLink } from "react-csv";
+import csvDownload from "./CsvDownload";
 
 const CsvDownload = () => {
 
@@ -48,7 +49,7 @@ const CsvDownload = () => {
     <CSVLink
         headers={headers}
         filename="bsf_volunteers.csv"
-        data={this.data}
+        data={csvDownload.data}
         ref={this.csvLinkEl}
     />
 </div>
