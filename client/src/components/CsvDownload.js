@@ -3,9 +3,9 @@ import { CSVLink } from "react-csv";
 import axios from 'axios'
 
 const headers = [
-    { label: "First Name", key: "firstName" },
-    { label: "Last Name", key: "lastName" },
-    { label: "Email", key: "email" },
+    { label: "First Name", key: "first_name" },
+    { label: "Last Name", key: "last_name" },
+    { label: "Email", key: "email_address" },
 ];
 
 class CsvDownload extends Component {
