@@ -18,7 +18,13 @@ const headers = [
         })
     }, [entryList])
 
-////
+    // fetchData() {
+    //     axios.get(`${process.env.REACT_APP_HOST}/api/read`)
+    //         .then(({data}) => {
+    //             this.setState({data})
+    //         })
+    // }
+
 
 const csvreport = {
     data: entryList,
@@ -27,10 +33,11 @@ const csvreport = {
 };
 
     return (
-        <div classname="App">
+        <div>
             <h3>Export data to CSV in React - <a href="https://cluemediator.com" target="_blank" rel="noopener noreferrer">Clue Mediator</a></h3>
-            <csvlink {...csvreport}>Export to CSV</csvlink>
+            <CSVLink {...csvreport}>Export to CSV</CSVLink>
         </div>
+
     );
         // return (
         //     <div>
