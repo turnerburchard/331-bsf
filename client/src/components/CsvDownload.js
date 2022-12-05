@@ -43,16 +43,12 @@ const CsvDownload = () => {
 
         return(
 
-    <div id= {
-        'async'
-    }
-
->
+    <div id= 'async'>
     <input type="button" value="Export to CSV (Async)" onClick={this.downloadReport}/>
     <CSVLink
         headers={headers}
         filename="bsf_volunteers.csv"
-        data={data}
+        data={this.data}
         ref={this.csvLinkEl}
     />
 </div>
