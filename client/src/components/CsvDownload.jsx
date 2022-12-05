@@ -34,7 +34,7 @@ const CsvDownload = () => {
         }
 
         downloadReport = async () => {
-            const data = await this.getUserList();
+            const data = entryList;
             this.setState({data: data}, () => {
                 setTimeout(() => {
                     this.csvLinkEl.current.link.click();
