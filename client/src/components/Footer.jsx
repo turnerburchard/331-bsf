@@ -6,7 +6,7 @@ const Footer = () => {
     <footer>
         <h4>Hosted by: Brady Ash ~ j11q863 </h4>
         <p> <b>Port:</b> 30/5065 </p>
-        <p> Backend linking to a database </p>
+        <p> Mass Email(frontend and backend), backend linking to database, </p>
     </footer>
   )
 }

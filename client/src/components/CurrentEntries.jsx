@@ -13,7 +13,7 @@ const CurrentEntries = () => {
     axios.get(`${process.env.REACT_APP_HOST}/api/read`).then((response) => {
       setEntryList(response.data)
     })
-  }, [entryList])
+  }, [])
 
   const [newEmail, setNewEmail] = useState('')
   const [passcode, setPasscode] = useState('')
@@ -129,7 +129,11 @@ const CurrentEntries = () => {
   }
 
   const strAscending = [...entryList].sort((a, b) =>
-      a.name > b.name ? 1 : -1,
+      a.last_name > b.last_name ? 1 : -1,
+  );
+
+  const emailAscending = [...entryList].sort((a, b) =>
+      a.email_address > b.email_address ? 1 : -1,
   );
 
   return (
@@ -166,8 +170,12 @@ const CurrentEntries = () => {
             onBlur={(e) => abortPasscodeAttempt(e.target.value)} />
         </div>
         <button id="submitEmailsButton" className='submitBtn' onClick={() => alert('TODO: Send It!')}>Email Vouchers</button>
-        {/*<button id="sortAscendingName" onClick={setEntryList(strAscending)}>Sort Name</button>*/}
-      </div>
+        <div>
+	  <button onClick={() => setEntryList(emailAscending)}>Sort Email</button>
+	  <button id="sortAscendingName" onClick={() => setEntryList(strAscending)}>Sort Name</button>
+	  <button>Sort By Volunteer Amount</button>
+	  </div>
+	</div>
     </div>
   )
 }
