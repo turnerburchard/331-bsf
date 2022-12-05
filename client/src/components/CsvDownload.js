@@ -1,23 +1,27 @@
-import React, {Component, useEffect, useState} from 'react';
+import { useState, useRef, useEffect } from 'react';
+import React, { Component } from 'react';
+import axios from 'axios'
 import { CSVLink } from "react-csv";
-import axios from 'axios';
-
 
 const CsvDownload = () => {
-    const headers = [
-        {label: "First_Name", key: "firstName"},
-        {label: "Last_Name", key: "lastName"},
-        {label: "Email", key: "email"},
-    ];
+
+    const SECRET = process.env.REACT_APP_PASSCODE
 
     const [entryList, setEntryList] = useState([])
 
 
+    // READ (GET)
     useEffect(() => {
         axios.get(`${process.env.REACT_APP_HOST}/api/read`).then((response) => {
             setEntryList(response.data)
         })
     }, [entryList])
+
+    const headers = [
+        { label: "First Name", key: "firstName" },
+        { label: "Last Name", key: "lastName" },
+        { label: "Email", key: "email" }
+    ];
 
     class CsvDownload extends Component {
         constructor(props) {
@@ -27,12 +31,6 @@ const CsvDownload = () => {
             }
             this.csvLinkEl = React.createRef();
         }
-
-
-        getUserList = () => {
-            return entryList
-        }
-
         downloadReport = async () => {
             const data = entryList;
             this.setState({data: data}, () => {
@@ -41,23 +39,24 @@ const CsvDownload = () => {
                 });
             });
         }
-
-        render() {
-            const {data} = this.state;
-
-            return (
-                <div id={'async'}>
-                    <input type="button" value="Export to CSV (Async)" onClick={this.downloadReport}/>
-                    <CSVLink
-                        headers={headers}
-                        filename="bsf_volunteers.csv"
-                        data={data}
-                        ref={this.csvLinkEl}
-                    />
-                </div>
-            );
-        }
     }
+
+        return(
+
+    <div id= {
+        'async'
+    }
+
+>
+    <input type="button" value="Export to CSV (Async)" onClick={this.downloadReport}/>
+    <CSVLink
+        headers={headers}
+        filename="bsf_volunteers.csv"
+        data={data}
+        ref={this.csvLinkEl}
+    />
+</div>
+)
 }
 
 export default CsvDownload;
