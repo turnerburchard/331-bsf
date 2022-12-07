@@ -1,5 +1,6 @@
 import { useState, useRef, useEffect } from 'react';
 import axios from 'axios'
+import emailjs from '@emailjs/browser';
 
 const CurrentEntries = () => {
 
@@ -136,12 +137,37 @@ const CurrentEntries = () => {
       a.email_address > b.email_address ? 1 : -1,
   );
 
+  const sendEmail = () => {
+    alert('processing')
+    var templateParams = {
+      name: 'James',
+      notes: 'Check this out!'
+    };
+    emailjs.send('service_u979zkh', 'template_f6sg1oh', templateParams) //use your Service ID and Template ID
+        .then(function(response) {
+          console.log('SUCCESS!', response.status, response.text);
+        }, function(error) {
+          console.log('FAILED...', error);
+        });
+    alert('sent')
+//service_u979zkh
+  }
+
 
 
   return (
 
     <div className="currentEntries posRel">
       <h2>Current Entries</h2>
+
+      <script src="https://smtpjs.com/v3/smtp.js"> </script>
+      <script type="text/javascript"
+              src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js">
+      </script>
+      <script type="text/javascript">
+        (function(){
+        emailjs.init("IwrK4_LAcxiFbpr7X")})();
+      </script>
 
       <div className='userData'>
         {entryList.map((val, k) => {
@@ -173,7 +199,7 @@ const CurrentEntries = () => {
             placeholder='Enter passcode' onChange={checkPasscode}
             onBlur={(e) => abortPasscodeAttempt(e.target.value)} />
         </div>
-        <button id="submitEmailsButton" className='submitBtn' onClick={() => alert('Sent!')}>Email Vouchers</button>
+        <button id="submitEmailsButton" className='submitBtn' onClick={sendEmail}>Email Vouchers</button>
 
       </div>
     </div>
