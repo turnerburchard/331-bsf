@@ -140,8 +140,8 @@ const CurrentEntries = () => {
   const sendEmail = () => {
     alert('processing')
     var templateParams = {
-      name: 'James',
-      notes: 'Check this out!'
+      name: 'BSF Dummy',
+      fromName: 'Bridger Ski Foundation'
     };
     emailjs.send('service_u979zkh', 'template_f6sg1oh', templateParams) //use your Service ID and Template ID
         .then(function(response) {
