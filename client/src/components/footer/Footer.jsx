@@ -11,10 +11,10 @@ const Footer = () => {
             <li>Header</li>
             <li>Contact Page</li>
             <li>App routing</li>
-            <li>More TBD</li>
+            <li>Combine Functionalities</li>
         </ul>
         <p><a href={"https://github.com/turnerburchard"}>Github </a></p>
-        <p><a href={"https://github.com/turnerburchard/331-bsf"}>Repo</a> (Branch: turner)</p>
+        <p><a href={"https://github.com/turnerburchard/331-bsf"}>Repo</a> (Branch: turner2)</p>
     </footer>
   )
 }

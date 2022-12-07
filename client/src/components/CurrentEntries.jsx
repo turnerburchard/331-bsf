@@ -13,7 +13,7 @@ const CurrentEntries = () => {
     axios.get(`${process.env.REACT_APP_HOST}/api/read`).then((response) => {
       setEntryList(response.data)
     })
-  }, [entryList])
+  }, [])
 
   const [newEmail, setNewEmail] = useState('')
   const [passcode, setPasscode] = useState('')
@@ -128,6 +128,16 @@ const CurrentEntries = () => {
     }
   }
 
+  const strAscending = [...entryList].sort((a, b) =>
+      a.last_name > b.last_name ? 1 : -1,
+  );
+
+  const emailAscending = [...entryList].sort((a, b) =>
+      a.email_address > b.email_address ? 1 : -1,
+  );
+
+
+
   return (
 
     <div className="currentEntries posRel">
@@ -155,6 +165,8 @@ const CurrentEntries = () => {
 
         })}
         <div className="editField editGui">
+          <button id="sortAscendingName" onClick={() => setEntryList(strAscending)}>Sort Name</button>
+          <button id="sortAscendingEmail" onClick={() => setEntryList(emailAscending)}>Sort Email</button>
           <button id="editButton" onClick={handleEditList}>Edit List</button>
           <button id="doneButton" onClick={handleFinishedEditing}>Finished Editing</button>
           <input id="editPasscodeInput" ref={refPass} type="password"
